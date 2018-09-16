@@ -4,6 +4,8 @@ import { Icon } from 'semantic-ui-react';
 import styled from 'styled-components';
 import moment from 'moment';
 
+import { Link } from '@reach/router';
+
 const Container = styled.div`
     background: white;
     margin: 5px 0;
@@ -27,6 +29,7 @@ const SeeMore = styled.div`
 const Text = styled.p`
     font-size: 12px;
     text-decoration: underline;
+    color: #000;
 `
 
 
@@ -44,7 +47,9 @@ class JourneyItem extends Component {
                 </JourneyInfo>
                 <SeeMore>
                     <Icon name="angle double right" size="large" />
-                    <Text>See detail</Text>
+                    <Link to="/app/profile">
+                        <Text>See detail</Text>
+                    </Link>
                 </SeeMore>
             </Container>
         );

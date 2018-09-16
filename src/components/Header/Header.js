@@ -15,6 +15,7 @@ const HeaderContainer = styled.div`
     justify-content: space-between;
     margin-top: 20px;
     box-shadow: 0 4px 0px -2px gray;
+    border-bottom: 1px solid gray;
 `;
 
 class Header extends Component {

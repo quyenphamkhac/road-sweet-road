@@ -31,7 +31,9 @@ class Login extends Component {
                     <Form>
                         <Form.Input placeholder='Username' required />
                         <Form.Input type="password" placeholder='Password' required />
-                        <Button primary fluid>Submit</Button>
+                        <Button primary fluid>
+                            <Link style={{color: "#fff"}} to="/app">Login</Link>
+                        </Button>
                     </Form>
                 </FormLogin>
                 <Divider />

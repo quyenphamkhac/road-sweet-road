@@ -34,16 +34,34 @@ const Info = styled.div`
     width: 100%;
 `
 
+const MapView = styled.img`
+    width: 100%;
+    border: 1px solid gray;
+`
+
 class Profile extends Component {
+    constructor(props) {
+        super(props);
+
+        this.state = {
+            isRequested: false,
+        }
+    }
+
+    changeRequestHandler = () => {
+        this.setState({ isRequested: !this.state.isRequested });
+    }
+
     render() {
-        const { isRequested, info } = this.props;
+        const { info } = this.props;
+        const { isRequested } = this.state;
         return (
             <Container>
                 <Avatar src="https://scontent.fsgn2-3.fna.fbcdn.net/v/t1.0-9/19106026_294392867697550_7365863854017209596_n.jpg?_nc_cat=0&oh=2b8c522b0e1cc19ffb68ca275c0aec89&oe=5C17DD54" />
                 <ButtonGroup>
-                    {isRequested ? 
-                        <Button primary fluid>Send request</Button> :
-                        <Button secondary fluid>Cancel request</Button>}
+                    {!isRequested ? 
+                        <Button primary fluid onClick={this.changeRequestHandler}>Send request</Button> :
+                        <Button secondary fluid onClick={this.changeRequestHandler}>Cancel request</Button>}
                 </ButtonGroup>
                     
                 <Info>
@@ -55,6 +73,8 @@ class Profile extends Component {
                     <p><Icon name="calendar alternate outline"/>Schedule: {info.schedule}</p>
                     <p><Icon name="clock"/>Time: {info.time}</p>
                     <p><Icon name="edit"/>Bio: {info.bio}</p>
+                    <p><Icon name="map signs"/>Estimated Trip: {info.duration}</p>
+                    <MapView src="https://cnet2.cbsistatic.com/img/H_zPLL8-QTZOLxJvgHQ1Jkz0EgY=/830x467/2013/07/10/f0bcef02-67c2-11e3-a665-14feb5ca9861/maps_routemap.png" />
                 </Info>
             </Container>
         );
